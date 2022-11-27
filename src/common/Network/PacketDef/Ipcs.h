@@ -149,7 +149,7 @@ namespace Sapphire::Network::Packets
 
     PlayerAddedToBlacklist = 0x0002, // updated 6.18 hotfix (todo: placeholder)
     PlayerRemovedFromBlacklist = 0x0361, // updated 6.18 hotfix
-    BlackList = 0x03A9, // updated 6.18 hotfix
+    BlackList = 0x031C, // updated 6.28 hotfix
 
     LinkshellList = 0x028D, // updated 6.18 hotfix
     CrossWorldLinkshellList = 0x01A1, // updated 6.18 hotfix
@@ -350,7 +350,7 @@ namespace Sapphire::Network::Packets
     InitHandler = 0x0194, // updated 6.28 hotfix
     FinishLoadingHandler = 0x0387, // updated 6.18 hotfix testing
     SocialListHandler = 0x0252, // updated 6.18 hotfix
-    BlackListHandler = 0x007A, // updated 6.18 hotfix
+    BlackListHandler = 0x033A, // updated 6.28 hotfix
     LinkshellListHandler = 0xF39D, // updated 6.11
     MarketBoardSearch = 0xF183, // updated 6.11a
 
