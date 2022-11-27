@@ -55,30 +55,30 @@ namespace Sapphire::Network::Packets
     Ping = 0x03B2, // updated 6.18 hotfix
     Init = 0x0387, // updated 6.18 hotfix
 
-    InitZone = 0x010F, // Updated 6.18 hotfix
-    PrepareZoning = 0x02F7, // Updated 6.18 hotfix
+    InitZone = 0x00F0, // Updated 6.28 hotfix
+    PrepareZoning = 0x02DB, // Updated 6.28 hotfix
 
-    EffectResult = 0x021E, // Updated 6.18 hotfix
-    EffectResultBasic = 0x1078, // updated 6.18 hotfix
+    EffectResult = 0x01F0, // Updated 6.28 hotfix
+    EffectResultBasic = 0x1070, // Updated 6.28 hotfix
 
-    ActorControl = 0x00CB, // Updated 6.18 hotfix
-    ActorControlTarget = 0x0174, // Updated 6.18 hotfix
-    ActorControlSelf = 0x03CD, // Updated 6.18 hotfix
-    ActorCast = 0x0077, // Updated 6.18 hotfix
-    ActorSetPos = 0x0240, // Updated 6.18 hotfix
-    ActorMove = 0x0227, // Updated 6.18 hotfix
-    ActorGauge = 0x03A3, // Updated 6.18 hotfix
+    ActorControl = 0x0197, // Updated 6.28 hotfix
+    ActorControlTarget = 0x028B, // Updated 6.28 hotfix
+    ActorControlSelf = 0x0238, // Updated 6.28 hotfix
+    ActorCast = 0x02AD, // Updated 6.28 hotfix
+    ActorSetPos = 0x0329, // Updated 6.28 hotfix
+    ActorMove = 0x0384, // Updated 6.28 hotfix
+    ActorGauge = 0x0382, // Updated 6.28 hotfix
 
-    EventPlay = 0x00B6, // Updated 6.18 hotfix
-    EventPlay4 = 0x00EF, // Updated 6.18 hotfix
-    EventPlay8 = 0x02BE, // Updated 6.18 hotfix
-    EventPlay16 = 0x0268, // Updated 6.18 hotfix
-    EventPlay32 = 0x01EC, // Updated 6.18 hotfix
-    EventPlay64 = 0x02B4, // Updated 6.18 hotfix
-    EventPlay128 = 0x01DA, // Updated 6.18 hotfix
-    EventPlay255 = 0x035C, // Updated 6.18 hotfix
-    EventStart = 0x02C3, // Updated 6.18 hotfix
-    EventFinish = 0x03AA, // Updated 6.18 hotfix
+    EventPlay = 0x38c, // Updated for 6.28a
+    EventPlay4 = 0x274, // Updated for 6.28a
+    EventPlay8 = 0x2d9, // Updated for 6.28a
+    EventPlay16 = 0x1ab, // Updated for 6.28a
+    EventPlay32 = 0x203, // Updated for 6.28a
+    EventPlay64 = 0x38d, // Updated for 6.28a
+    EventPlay128 = 0x35f, // Updated for 6.28a
+    EventPlay255 = 0x11d, // Updated for 6.28a
+    EventStart = 0x0179, // Updated 6.28 hotfix
+    EventFinish = 0x0175, // Updated 6.28 hotfix
 
     DirectorVars = 0x00A3, // updated 6.18 hotfix
     SomeDirectorUnk1 = 0xF0DB, // updated 6.11 or 0xCC, 0x122, 0x1AD, or 0x24F
@@ -93,29 +93,29 @@ namespace Sapphire::Network::Packets
 
     ///////////////////////////////////////////////////
 
-    PlayerStats = 0x0310, // Updated 6.18 hotfix
-    PlayerSetup = 0x0304, // Updated 6.18 hotfix
-    PlayerSpawn = 0x020C, // Updated 6.18 hotfix
+    PlayerStats = 0x0086, // Updated 6.28 hotfix
+    PlayerSetup = 0x0091, // Updated 6.28 hotfix
+    PlayerSpawn = 0x00DD, // Updated 6.28 hotfix
     PlayerClassInfo = 0x0084, // updated 6.18 hotfix
     PlayerUpdateLook = 0x0144, // updated 6.18 hotfix
 
 
-    UpdateHpMpTp = 0x00E7, // Updated 6.18 hotfix
-    UpdateClassInfo = 0x03D5, // Updated 6.18 hotfix
+    UpdateHpMpTp = 0x02A2, // Updated 6.28 hotfix
+    UpdateClassInfo = 0x02B7, // Updated 6.28 hotfix
 
-    ExamineSearchInfo = 0x019C, // Updated 6.18 hotfix
-    UpdateSearchInfo = 0x0205, // Updated 6.18 hotfix
+    ExamineSearchInfo = 0x010F, // Updated 6.28 hotfix
+    UpdateSearchInfo = 0x02B6, // Updated 6.28 hotfix
 
     // daily quest info -> without them sent,  login will take longer...
     DailyQuests = 0x029B, // updated 6.18 hotfix
     DailyQuestRepeatFlags = 0x032F, // updated 6.18 hotfix
 
-    Logout = 0x03B1, // updated 6.18 hotfix
-    Playtime = 0x01E5, // Updated 6.18 hotfix
+    Logout = 0x00DF, // Updated 6.28 hotfix
+    Playtime = 0x00E5, // Updated 6.28 hotfix
 
     CFCancel = 0x028C, // updated 6.18 hotfix
     CFDutyInfo = 0x025C, // updated 6.18 hotfix
-    CFNotify = 0x0147, // updated 6.18 hotfix
+    CFNotify = 0x0173, // Updated 6.28 hotfix
     CFPreferredRole = 0x037D, // updated 6.18 hotfix
     CFMemberStatus = 0x037F, // updated 6.18 hotfix testing
     CFPlayerInNeed = 0xF07F,
@@ -141,7 +141,7 @@ namespace Sapphire::Network::Packets
 
     ServerNoticeShort = 0x03BC, // updated 6.18 hotfix
     ServerNotice = 0x0236, // updated 6.18 hotfix
-    SystemLogMessage = 0x008F, // updated 6.18 hotfix
+    SystemLogMessage = 0x0325, // Updated 6.28 hotfix
     SetOnlineStatus = 0x036E, // updated 6.18 hotfix
 
     CountdownInitiate = 0x034E, // updated 6.18 hotfix
@@ -164,25 +164,25 @@ namespace Sapphire::Network::Packets
 
     MarketTaxRates = 0x01F8, // updated 5.35 hotfix
 
-    MarketBoardSearchResult = 0x025D, // Updated 6.18 hotfix
-    MarketBoardItemListingCount = 0x033C, // Updated 6.18 hotfix
-    MarketBoardItemListingHistory = 0x02ED, // Updated 6.18 hotfix
-    MarketBoardItemListing = 0x0371, // Updated 6.18 hotfix
-    MarketBoardPurchase = 0x010D, // updated 6.18 hotfix
-    ItemMarketBoardInfo = 0x00A2, // Updated 6.18 hotfix
+    MarketBoardSearchResult = 0x02E1, // Updated 6.28 hotfix
+    MarketBoardItemListingCount = 0x03C3, // Updated 6.28 hotfix
+    MarketBoardItemListingHistory = 0x036C, // Updated 6.28 hotfix
+    MarketBoardItemListing = 0x0270, // Updated 6.28 hotfix
+    MarketBoardPurchase = 0x02E0, // Updated 6.28 hotfix
+    ItemMarketBoardInfo = 0x03DA, // Updated 6.28 hotfix
 
     CharaFreeCompanyTag = 0xF13B, // updated 4.5
     FreeCompanyBoardMsg = 0xF276, // updated 6.11
-    FreeCompanyInfo = 0x011C, // Updated 6.18 hotfix
-    FreeCompanyDialog = 0x0367, // Updated 6.18 hotfix
+    FreeCompanyInfo = 0x0273, // Updated 6.28 hotfix
+    FreeCompanyDialog = 0x03E0, // Updated 6.28 hotfix
     ExamineFreeCompanyInfo = 0x0230, // updated 6.18 hotfix
 
     FreeCompanyUpdateShortMessage = 0xF157, // added 5.0
 
-    StatusEffectList = 0x01D0, // Updated 6.18 hotfix
+    StatusEffectList = 0x019B, // Updated 6.28 hotfix
     EurekaStatusEffectList = 0x03D9, // updated 6.18 hotfix
     BossStatusEffectList = 0x0069, // updated 6.18 hotfix
-    Effect = 0x0353, // Updated 6.18 hotfix
+    Effect = 0x0395, // Updated 6.28 hotfix
     AoeEffect8 = 0x02E0, // Updated 6.18 hotfix
     AoeEffect16 = 0x014D, // Updated 6.18 hotfix
     AoeEffect24 = 0xF065, // updated 6.18 hotfix - clashes with PartyChat
@@ -194,7 +194,7 @@ namespace Sapphire::Network::Packets
 
     GCAffiliation = 0x03B5, // updated 6.18 hotfix
 
-    NpcSpawn = 0x01A4, // Updated 6.18 hotfix
+    NpcSpawn = 0x0359, // Updated 6.28 hotfix
     NpcSpawn2 = 0x03A2, // updated 6.18 hotfix
 
     SomeCustomiseChangePacketProbably = 0xF0CD, // added 5.18
@@ -203,7 +203,7 @@ namespace Sapphire::Network::Packets
     PartyMessage = 0x010B, // updated 6.18 hotfix
     HateRank = 0xF1C5, // updated 6.11
     HateList = 0xF24C, // updated 6.11
-    ObjectSpawn = 0x0313, // Updated 6.18 hotfix
+    ObjectSpawn = 0x0265, // Updated 6.28 hotfix
     ObjectDespawn = 0x039C, // updated 6.18 hotfix
     SilentSetClassJob = 0xF18E, // updated 5.0 - seems to be the case, not sure if it's actually used for anything
     ActorOwner = 0xF312, // updated 6.11
@@ -214,24 +214,24 @@ namespace Sapphire::Network::Packets
     InstanceDecorAnimation = 0x00CF, // updated 6.18 hotfix
 
     ModelEquip = 0x00D8, // updated 6.18 hotfix
-    Examine = 0x0290, // updated 6.18 hotfix
+    Examine = 0x0141, // Updated 6.28 hotfix
     CharaNameReq = 0x025F, // updated 6.18 hotfix
 
     // nb: see #565 on github
     UpdateRetainerItemSalePrice = 0xF19F, // updated 5.0
     RetainerSaleHistory = 0xF320, // updated 6.11
-    RetainerInformation = 0x0289, // Updated 6.18 hotfix
+    RetainerInformation = 0x024F, // Updated 6.28 hotfix
 
     SetLevelSync = 0xF186, // not updated for 4.4, not sure what it is anymore
 
-    ItemInfo = 0x01A0, // updated 6.18 hotfix
-    ContainerInfo = 0x0323, // updated 6.18 hotfix
-    InventoryTransactionFinish = 0x0180, // updated 6.18 hotfix
-    InventoryTransaction = 0x03C3, // updated 6.18 hotfix
-    CurrencyCrystalInfo = 0x0140,// updated 6.18 hotfix
+    ItemInfo = 0x03E3, // Updated 6.28 hotfix
+    ContainerInfo = 0x00D9, // Updated 6.28 hotfix
+    InventoryTransactionFinish = 0x0109, // Updated 6.28 hotfix
+    InventoryTransaction = 0x02E2, // Updated 6.28 hotfix
+    CurrencyCrystalInfo = 0x023F, // Updated 6.28 hotfix
 
-    InventoryActionAck = 0x013E, // Updated 6.18 hotfix
-    UpdateInventorySlot = 0x02DE, // Updated 6.18 hotfix
+    InventoryActionAck = 0x0230, // Updated 6.28 hotfix
+    UpdateInventorySlot = 0x0308, // Updated 6.28 hotfix
 
     HuntingLogEntry = 0x0072, // updated 6.18 hotfix
 
@@ -255,7 +255,7 @@ namespace Sapphire::Network::Packets
 
     CFAvailableContents = 0xF1FD, // updated 4.2
 
-    WeatherChange = 0x03BF, // updated 6.18 hotfix
+    WeatherChange = 0x031B, // Updated 6.28 hotfix
     PlayerTitleList = 0x02E2, // updated 6.18 hotfix
     Discovery = 0x020E, // updated 6.18 hotfix
 
@@ -266,8 +266,8 @@ namespace Sapphire::Network::Packets
     MiniCactpotInit = 0x03DC, // updated 6.11a
     ShopMessage = 0xF287, // updated 5.58 hotfix
     LootMessage = 0x02AD, // updated 6.18 hotfix
-    ResultDialog = 0x0325, // Updated 6.18 hotfix
-    DesynthResult = 0x03BD, // Updated 6.18 hotfix
+    ResultDialog = 0x028F, // Updated 6.28 hotfix
+    DesynthResult = 0x0111, // Updated 6.28 hotfix
 
     LandSetInitialize = 0x00B1, // updated 6.18 hotfix
     LandUpdate = 0x0329, // updated 6.18 hotfix
@@ -316,15 +316,15 @@ namespace Sapphire::Network::Packets
 
 
 
-    AirshipTimers = 0x02D6, // Updated 6.18 hotfix
-    AirshipStatus = 0x0145, // Updated 6.18 hotfix
-    AirshipStatusList = 0x0355, // Updated 6.18 hotfix
-    AirshipExplorationResult = 0x024A, // Updated 6.18 hotfix
+    AirshipTimers = 0x02DE, // Updated 6.28 hotfix
+    AirshipStatus = 0x032A, // Updated 6.28 hotfix
+    AirshipStatusList = 0x01F2, // Updated 6.28 hotfix
+    AirshipExplorationResult = 0x010D, // Updated 6.28 hotfix
 
-    SubmarineTimers = 0x01F0, // Updated 6.18 hotfix
-    SubmarineProgressionStatus = 0x013C, // Updated 6.18 hotfix
-    SubmarineStatusList = 0x010C, // Updated 6.18 hotfix
-    SubmarineExplorationResult = 0x007C, // Updated 6.18 hotfix
+    SubmarineTimers = 0x02A3, // Updated 6.28 hotfix
+    SubmarineProgressionStatus = 0x02C1, // Updated 6.28 hotfix
+    SubmarineStatusList = 0x009B, // Updated 6.28 hotfix
+    SubmarineExplorationResult = 0x0107, // Updated 6.28 hotfix
 
     /// Doman Mahjong //////////////////////////////////////
     MahjongOpenGui = 0xF2A4, // only available in mahjong instance
@@ -347,7 +347,7 @@ namespace Sapphire::Network::Packets
   enum ClientZoneIpcType : uint16_t
   {
     PingHandler = 0x0171, // updated 6.18 hotfix
-    InitHandler = 0x02B3, // updated 6.18 hotfix
+    InitHandler = 0x0194, // updated 6.28 hotfix
     FinishLoadingHandler = 0x0387, // updated 6.18 hotfix testing
     SocialListHandler = 0x0252, // updated 6.18 hotfix
     BlackListHandler = 0x007A, // updated 6.18 hotfix
@@ -357,15 +357,15 @@ namespace Sapphire::Network::Packets
     LogoutHandler = 0x0245, // updated 6.18 hotfix
     CancelLogout = 0x028C, // updated 6.18 hotfix
 
-    UpdatePositionHandler = 0x02D9, // Updated 6.18 hotfix
-    ClientTrigger = 0x036A, // Updated 6.18 hotfix
-    ChatHandler = 0x011E, // Updated 6.18 hotfix
-    SetSearchInfoHandler = 0x0212, // Updated 6.18 hotfix
-    MarketBoardPurchaseHandler = 0x00EB, // Updated 6.18 hotfix
-    InventoryModifyHandler = 0x0095, // Updated 6.18 hotfix (Base offset: 0x009C)
-    UpdatePositionInstance = 0x0131, // Updated 6.18 hotfix
-    PlaceFieldMarker = 0x01AF, // Updated 6.18 hotfix
-    PlaceFieldMarkerPreset = 0x0314, // Updated 6.18 hotfix
+    UpdatePositionHandler = 0x0392, // Updated 6.28 hotfix
+    ClientTrigger = 0x0221, // Updated 6.28 hotfix
+    ChatHandler = 0x0316, // Updated 6.28 hotfix
+    SetSearchInfoHandler = 0x01A7, // Updated 6.28 hotfix
+    MarketBoardPurchaseHandler = 0x0336, // Updated 6.28 hotfix
+    InventoryModifyHandler = 0x01E1, // Updated 6.28 hotfix (Base offset: 0x01E8)
+    UpdatePositionInstance = 0x02F8, // Updated 6.28 hotfix
+    PlaceFieldMarker = 0x01D8, // Updated 6.28 hotfix
+    PlaceFieldMarkerPreset = 0x0332, // Updated 6.28 hotfix
 
     GMCommand1 = 0x02D8, // updated 6.18 hotfix
     GMCommand2 = 0x02F8, // updated 6.18 hotfix
