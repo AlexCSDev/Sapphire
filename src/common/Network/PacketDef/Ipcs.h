@@ -53,7 +53,7 @@ namespace Sapphire::Network::Packets
     /////////////////////////////////////////////////
 
     Ping = 0x03B2, // updated 6.18 hotfix
-    Init = 0x0387, // updated 6.18 hotfix
+    Init = 0x01CB, // updated 6.28 hotfix
 
     InitZone = 0x00F0, // Updated 6.28 hotfix
     PrepareZoning = 0x02DB, // Updated 6.28 hotfix
@@ -251,6 +251,7 @@ namespace Sapphire::Network::Packets
 
     QuestTracker = 0x039E, // updated 6.18 hotfix
 
+    //TODO: conflicts with Init 6.28
     Mount = 0x01CB, // updated 6.18 hotfix
 
     CFAvailableContents = 0xF1FD, // updated 4.2
