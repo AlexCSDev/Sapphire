@@ -52,7 +52,7 @@ namespace Sapphire::Network::Packets
 
     /////////////////////////////////////////////////
 
-    Ping = 0x03B2, // updated 6.18 hotfix
+    Ping = 0x017E, // updated 6.28 hotfix
     Init = 0x01CB, // updated 6.28 hotfix
 
     InitZone = 0x00F0, // Updated 6.28 hotfix
@@ -140,7 +140,7 @@ namespace Sapphire::Network::Packets
     ExamineSearchComment = 0x0372, // updated 6.18 hotfix
 
     ServerNoticeShort = 0x03BC, // updated 6.18 hotfix
-    ServerNotice = 0x0236, // updated 6.18 hotfix
+    ServerNotice = 0x0090, // updated 6.28 hotfix
     SystemLogMessage = 0x0325, // Updated 6.28 hotfix
     SetOnlineStatus = 0x036E, // updated 6.18 hotfix
 
@@ -239,7 +239,7 @@ namespace Sapphire::Network::Packets
 
     EventLinkshell = 0x1169,
 
-    QuestActiveList = 0x0141, // updated 6.18 hotfix
+    QuestActiveList = 0x03CD, // updated 6.28 hotfix (experimental)
     QuestUpdate = 0x0183, // updated 6.18 hotfix
     QuestCompleteList = 0x01EB, // updated 6.18 hotfix
 
@@ -279,7 +279,7 @@ namespace Sapphire::Network::Packets
     LandRename = 0x026B, // updated 6.18 hotfix
     HousingEstateGreeting = 0x03D1, // updated 6.18 hotfix
     HousingUpdateLandFlagsSlot = 0x0311, // updated 6.18 hotfix
-    HousingLandFlags = 0x0305, // updated 6.18 hotfix
+    HousingLandFlags = 0x0149, // updated 6.28 hotfix (experimental)
     HousingShowEstateGuestAccess = 0x02FA, // updated 6.18 hotfix
 
     HousingObjectInitialize = 0x0362, // updated 6.18 hotfix
@@ -346,7 +346,7 @@ namespace Sapphire::Network::Packets
   */
   enum ClientZoneIpcType : uint16_t
   {
-    PingHandler = 0x0171, // updated 6.18 hotfix
+    PingHandler = 0x03A5, // updated 6.28 hotfix
     InitHandler = 0x0194, // updated 6.28 hotfix
     FinishLoadingHandler = 0x0387, // updated 6.18 hotfix testing
     SocialListHandler = 0x0252, // updated 6.18 hotfix
