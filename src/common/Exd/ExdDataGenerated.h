@@ -83,6 +83,7 @@ struct AquariumWater;
 struct ArchiveItem;
 struct ArrayEventHandler;
 struct AttackType;
+struct Attract;
 struct BacklightColor;
 struct Ballista;
 struct Balloon;
@@ -92,9 +93,9 @@ struct BannerDecoration;
 struct BannerDesignPreset;
 struct BannerFacial;
 struct BannerFrame;
+struct BannerObtainHintType;
 struct BannerPreset;
 struct BannerTimeline;
-struct BannerTimelineFrame;
 struct BaseParam;
 struct BattleLeve;
 struct BattleLeveRule;
@@ -153,6 +154,7 @@ struct ChocoboTaxi;
 struct ChocoboTaxiStand;
 struct CircleActivity;
 struct ClassJob;
+struct ClassJobActionSort;
 struct ClassJobCategory;
 struct CollectablesShop;
 struct CollectablesShopItem;
@@ -180,6 +182,7 @@ struct Completion;
 struct Condition;
 struct ConfigKey;
 struct ContentCloseCycle;
+struct ContentEventItem;
 struct ContentExAction;
 struct ContentFinderCondition;
 struct ContentFinderConditionTransient;
@@ -217,7 +220,9 @@ struct CutScreenImage;
 struct CycleTime;
 struct DailySupplyItem;
 struct DawnContent;
+struct DawnContentParticipable;
 struct DawnGrowMember;
+struct DawnMember;
 struct DawnMemberUIParam;
 struct DawnQuestMember;
 struct DeepDungeon;
@@ -496,19 +501,42 @@ struct MiniGameRA;
 struct MinionRace;
 struct MinionRules;
 struct MinionSkillType;
+struct MJIAnimals;
+struct MJIBuilding;
+struct MJIBuildingPlace;
 struct MJICraftworksObject;
+struct MJICraftworksObjectTheme;
+struct MJICraftworksPopularity;
 struct MJICraftworksPopularityType;
+struct MJICraftworksRankRatio;
 struct MJICraftworksSupplyDefine;
-struct MJICraftworksSupplyType;
 struct MJICraftworksTension;
+struct MJICropSeed;
+struct MJIDisposalShopItem;
+struct MJIDisposalShopUICategory;
+struct MJIFarmPastureRank;
 struct MJIFunction;
 struct MJIGathering;
+struct MJIGatheringItem;
 struct MJIGatheringObject;
+struct MJIGatheringTool;
+struct MJIHudMode;
+struct MJIItemCategory;
 struct MJIItemPouch;
+struct MJIKeyItem;
+struct MJILandmark;
+struct MJILandmarkPlace;
+struct MJILivelyActor;
+struct MJIMinionPopAreas;
+struct MJIProgress;
 struct MJIRank;
 struct MJIRecipe;
 struct MJIRecipeMaterial;
+struct MJIStockyardManagementArea;
+struct MJIStockyardManagementTable;
+struct MJIText;
 struct MJIVillageAppearanceSG;
+struct MJIVillageAppearanceUI;
 struct MJIVillageDevelopment;
 struct MobHuntOrder;
 struct MobHuntOrderType;
@@ -602,6 +630,7 @@ struct QuestRedoChapterUITab;
 struct QuestRedoIncompChapter;
 struct QuestRepeatFlag;
 struct QuestRewardOther;
+struct QuestSetDefine;
 struct QuickChat;
 struct QuickChatTransient;
 struct Race;
@@ -712,9 +741,13 @@ struct UDS_Event;
 struct UDS_Property;
 struct UIColor;
 struct UIConst;
-struct Vase;
 struct VaseFlower;
 struct VFX;
+struct VVDData;
+struct VVDNotebookContents;
+struct VVDNotebookSeries;
+struct VVDRouteData;
+struct VVDVariantAction;
 struct Warp;
 struct WarpCondition;
 struct WarpLogic;
@@ -1393,6 +1426,17 @@ struct AttackType
   AttackType( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
+struct Attract
+{
+  uint16_t maxDistance;
+  uint16_t speed;
+  int16_t minRemainingDistance;
+  bool useDistanceBetweenHitboxes;
+  uint8_t direction;
+
+  Attract( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
 struct BacklightColor
 {
   uint32_t color;
@@ -1425,38 +1469,75 @@ struct Balloon
 
 struct BannerBg
 {
+  int32_t image;
+  int32_t icon;
+  uint16_t unlockCondition;
+  uint16_t sortKey;
+  std::string name;
 
   BannerBg( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
 struct BannerCondition
 {
+  uint8_t unlockType1;
+  uint32_t unlockCriteria1;
+  uint8_t unlockType2;
+  uint32_t unlockCriteria2;
+  uint32_t unlockCriteria3;
+  uint32_t unlockCriteria4;
+  uint8_t hasPrerequisite;
+  uint32_t prerequisite;
 
   BannerCondition( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
 struct BannerDecoration
 {
+  int32_t image;
+  int32_t icon;
+  uint16_t unlockCondition;
+  uint16_t sortKey;
+  std::string name;
 
   BannerDecoration( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
 struct BannerDesignPreset
 {
+  uint16_t background;
+  uint16_t frame;
+  uint16_t decoration;
+  uint16_t sortKey;
+  std::string name;
 
   BannerDesignPreset( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
 struct BannerFacial
 {
+  uint16_t emote;
+  uint16_t unlockCondition;
+  uint8_t sortKey;
 
   BannerFacial( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
 struct BannerFrame
 {
+  int32_t image;
+  int32_t icon;
+  uint16_t unlockCondition;
+  uint16_t sortKey;
+  std::string name;
 
   BannerFrame( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct BannerObtainHintType
+{
+
+  BannerObtainHintType( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
 struct BannerPreset
@@ -1467,14 +1548,16 @@ struct BannerPreset
 
 struct BannerTimeline
 {
+  uint8_t type;
+  uint32_t additionalData;
+  uint8_t acceptClassJobCategory;
+  uint8_t category;
+  uint16_t unlockCondition;
+  uint16_t sortKey;
+  int32_t icon;
+  std::string name;
 
   BannerTimeline( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
-};
-
-struct BannerTimelineFrame
-{
-
-  BannerTimelineFrame( uint32_t row_id, uint32_t subRow, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
 struct BaseParam
@@ -1967,18 +2050,38 @@ struct Channeling
 
 struct CharaCardBase
 {
+  int32_t image;
+  uint8_t fontColor;
+  uint16_t unlockCondition;
+  uint16_t sortKey;
+  std::string name;
 
   CharaCardBase( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
 struct CharaCardDecoration
 {
+  uint8_t category;
+  int32_t image;
+  uint16_t unlockCondition;
+  uint16_t sortKey;
+  std::string name;
 
   CharaCardDecoration( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
 struct CharaCardDesignPreset
 {
+  uint16_t basePlate;
+  uint8_t topBorder;
+  uint8_t bottomBorder;
+  uint16_t backing;
+  uint16_t patternOverlay;
+  uint16_t portraitFrame;
+  uint16_t plateFrame;
+  uint16_t accent;
+  uint16_t sortKey;
+  std::string name;
 
   CharaCardDesignPreset( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
@@ -1991,12 +2094,20 @@ struct CharaCardDesignType
 
 struct CharaCardHeader
 {
+  int32_t topImage;
+  int32_t bottomImage;
+  uint8_t fontColor;
+  uint8_t sortKey;
+  std::string name;
 
   CharaCardHeader( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
 struct CharaCardPlayStyle
 {
+  int32_t icon;
+  uint8_t sortKey;
+  std::string name;
 
   CharaCardPlayStyle( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
@@ -2235,6 +2346,12 @@ struct ClassJob
   bool canQueueForDuty;
 
   ClassJob( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct ClassJobActionSort
+{
+
+  ClassJobActionSort( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
 struct ClassJobCategory
@@ -2567,6 +2684,12 @@ struct ContentCloseCycle
   ContentCloseCycle( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
+struct ContentEventItem
+{
+
+  ContentEventItem( uint32_t row_id, uint32_t subRow, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
 struct ContentExAction
 {
   uint32_t name;
@@ -2602,14 +2725,14 @@ struct ContentFinderCondition
   uint16_t sortKey;
   uint32_t image;
   uint32_t icon;
-  bool level506070Roulette;
   bool levelingRoulette;
+  bool highLevelRoulette;
   bool mSQRoulette;
   bool guildHestRoulette;
   bool expertRoulette;
   bool trialRoulette;
   bool dailyFrontlineChallenge;
-  bool level80Roulette;
+  bool levelCapRoulette;
   bool mentorRoulette;
   bool allianceRoulette;
   bool feastTeamRoulette;
@@ -2965,6 +3088,12 @@ struct DawnContent
   DawnContent( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
+struct DawnContentParticipable
+{
+
+  DawnContentParticipable( uint32_t row_id, uint32_t subRow, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
 struct DawnGrowMember
 {
   std::vector< uint32_t > selectImage;
@@ -2972,6 +3101,12 @@ struct DawnGrowMember
   uint8_t _class;
 
   DawnGrowMember( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct DawnMember
+{
+
+  DawnMember( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
 struct DawnMemberUIParam
@@ -4113,7 +4248,6 @@ struct GatheringPointBase
   int32_t gatheringType;
   uint8_t gatheringLevel;
   std::vector< int32_t > item;
-  bool isLimited;
 
   GatheringPointBase( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
@@ -5842,34 +5976,119 @@ struct MinionSkillType
   MinionSkillType( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
+struct MJIAnimals
+{
+  uint32_t bNpcBase;
+  uint8_t size;
+  std::vector< uint32_t > reward;
+  int32_t icon;
+
+  MJIAnimals( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct MJIBuilding
+{
+  uint16_t sgb0;
+  uint16_t sgb1;
+  uint16_t sgb2;
+  uint16_t sgb3;
+  uint16_t sgb4;
+  std::vector< uint8_t > material;
+  std::vector< uint8_t > amount;
+  uint32_t name;
+  uint32_t icon;
+
+  MJIBuilding( uint32_t row_id, uint32_t subRow, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct MJIBuildingPlace
+{
+  uint32_t name;
+  uint32_t sGB;
+
+  MJIBuildingPlace( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
 struct MJICraftworksObject
 {
+  uint16_t item;
+  std::vector< uint16_t > theme;
+  uint16_t levelReq;
+  uint16_t craftingTime;
+  uint16_t value;
 
   MJICraftworksObject( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
+struct MJICraftworksObjectTheme
+{
+  std::string name;
+
+  MJICraftworksObjectTheme( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct MJICraftworksPopularity
+{
+  std::vector< uint8_t > popularity;
+
+  MJICraftworksPopularity( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
 struct MJICraftworksPopularityType
 {
+  uint16_t ratio;
 
   MJICraftworksPopularityType( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
-struct MJICraftworksSupplyDefine
+struct MJICraftworksRankRatio
 {
+  uint16_t ratio;
 
-  MJICraftworksSupplyDefine( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+  MJICraftworksRankRatio( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
-struct MJICraftworksSupplyType
+struct MJICraftworksSupplyDefine
 {
+  int16_t supply;
+  uint16_t ratio;
 
-  MJICraftworksSupplyType( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+  MJICraftworksSupplyDefine( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
 struct MJICraftworksTension
 {
 
   MJICraftworksTension( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct MJICropSeed
+{
+  uint32_t item;
+  uint16_t sGB;
+  uint32_t name;
+
+  MJICropSeed( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct MJIDisposalShopItem
+{
+  uint8_t category;
+
+  MJIDisposalShopItem( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct MJIDisposalShopUICategory
+{
+  std::string category;
+
+  MJIDisposalShopUICategory( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct MJIFarmPastureRank
+{
+
+  MJIFarmPastureRank( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
 struct MJIFunction
@@ -5880,48 +6099,193 @@ struct MJIFunction
 
 struct MJIGathering
 {
+  uint8_t gatheringObject;
 
   MJIGathering( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
+struct MJIGatheringItem
+{
+  uint32_t item;
+  uint8_t sort;
+  int16_t x;
+  int16_t y;
+  uint16_t radius;
+
+  MJIGatheringItem( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
 struct MJIGatheringObject
 {
+  std::string singular;
+  int8_t adjective;
+  std::string plural;
+  int8_t possessivePronoun;
+  int8_t startsWithVowel;
+  int8_t pronoun;
+  int8_t article;
+  uint16_t sGB;
+  uint32_t mapIcon;
+  uint32_t name;
 
   MJIGatheringObject( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
+struct MJIGatheringTool
+{
+
+  MJIGatheringTool( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct MJIHudMode
+{
+  std::string name;
+  std::string title;
+  uint32_t icon;
+
+  MJIHudMode( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct MJIItemCategory
+{
+  std::string singular;
+  std::string plural;
+
+  MJIItemCategory( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
 struct MJIItemPouch
 {
+  uint32_t item;
+  int32_t category;
+  uint8_t crop;
 
   MJIItemPouch( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
+struct MJIKeyItem
+{
+  int32_t item;
+
+  MJIKeyItem( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct MJILandmark
+{
+  uint16_t sGB0;
+  uint16_t sGB1;
+  uint16_t sGB2;
+  uint16_t sGB3;
+  uint16_t sGB4;
+  std::vector< uint16_t > material;
+  std::vector< uint8_t > amount;
+  uint32_t name;
+  uint32_t icon;
+
+  MJILandmark( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct MJILandmarkPlace
+{
+  uint32_t name;
+  uint32_t sGB;
+
+  MJILandmarkPlace( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct MJILivelyActor
+{
+  uint32_t eNPC;
+  uint16_t behavior;
+  float x;
+  float y;
+  float z;
+  float rot;
+
+  MJILivelyActor( uint32_t row_id, uint32_t subRow, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct MJIMinionPopAreas
+{
+
+  MJIMinionPopAreas( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct MJIProgress
+{
+  std::string vision;
+  std::string objective;
+  std::string previousObjective;
+
+  MJIProgress( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
 struct MJIRank
 {
+  uint32_t expToNext;
+  std::vector< uint32_t > logMessage;
 
   MJIRank( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
 struct MJIRecipe
 {
+  uint32_t logMessage;
+  uint8_t keyItem;
+  uint8_t itemPouch;
+  uint8_t order;
 
   MJIRecipe( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
 struct MJIRecipeMaterial
 {
+  int32_t itemPouch;
 
   MJIRecipeMaterial( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
+struct MJIStockyardManagementArea
+{
+  uint8_t rareMaterial;
+  uint16_t area;
+
+  MJIStockyardManagementArea( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct MJIStockyardManagementTable
+{
+  uint8_t material;
+
+  MJIStockyardManagementTable( uint32_t row_id, uint32_t subRow, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct MJIText
+{
+  std::string text;
+
+  MJIText( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
 struct MJIVillageAppearanceSG
 {
+  std::vector< uint16_t > sGB;
 
   MJIVillageAppearanceSG( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
+struct MJIVillageAppearanceUI
+{
+  int32_t floor;
+
+  MJIVillageAppearanceUI( uint32_t row_id, uint32_t subRow, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
 struct MJIVillageDevelopment
 {
+  uint32_t eNPC;
+  uint16_t behavior0;
+  uint16_t behavior1;
 
   MJIVillageDevelopment( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
@@ -6586,8 +6950,8 @@ struct PhysicsWind
 
 struct Picture
 {
-  int32_t item;
   int32_t image;
+  int32_t signature;
 
   Picture( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
@@ -7000,6 +7364,12 @@ struct QuestRewardOther
   QuestRewardOther( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
+struct QuestSetDefine
+{
+
+  QuestSetDefine( uint32_t row_id, uint32_t subRow, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
 struct QuickChat
 {
   std::string nameAction;
@@ -7124,6 +7494,7 @@ struct Recipe
   uint16_t difficultyFactor;
   uint16_t qualityFactor;
   uint16_t durabilityFactor;
+  uint32_t requiredQuality;
   uint16_t requiredCraftsmanship;
   uint16_t requiredControl;
   uint16_t quickSynthCraftsmanship;
@@ -7660,20 +8031,28 @@ struct Status
   std::string description;
   uint16_t icon;
   uint8_t maxStacks;
-  uint8_t category;
+  uint8_t classJobCategory;
+  uint8_t statusCategory;
   uint8_t hitEffect;
   uint16_t vFX;
   bool lockMovement;
   bool lockActions;
   bool lockControl;
   bool transfiguration;
+  bool isGaze;
   bool canDispel;
   bool inflictedByActor;
   bool isPermanent;
   uint8_t partyListPriority;
+  uint8_t canIncreaseRewards;
+  int16_t paramModifier;
+  uint8_t paramEffect;
+  bool canStatusOff;
   uint16_t log;
   bool isFcBuff;
   bool invisibility;
+  uint8_t targetType;
+  uint8_t flags;
 
   Status( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
@@ -8168,19 +8547,8 @@ struct UIConst
   UIConst( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
-struct Vase
-{
-  uint32_t start;
-  uint32_t end;
-
-  Vase(uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData);
-};
-
 struct VaseFlower
 {
-  uint16_t flower;
-  uint8_t isVase;
-  uint8_t flowerColour;
   uint32_t item;
 
   VaseFlower( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
@@ -8191,6 +8559,43 @@ struct VFX
   std::string location;
 
   VFX( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct VVDData
+{
+
+  VVDData( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct VVDNotebookContents
+{
+  int32_t icon;
+  int32_t image;
+  std::string name;
+  std::string description;
+
+  VVDNotebookContents( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct VVDNotebookSeries
+{
+  std::string name;
+  std::vector< int32_t > contents;
+
+  VVDNotebookSeries( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct VVDRouteData
+{
+
+  VVDRouteData( uint32_t row_id, uint32_t subRow, Sapphire::Data::ExdDataGenerated* exdData );
+};
+
+struct VVDVariantAction
+{
+  uint32_t action;
+
+  VVDVariantAction( uint32_t row_id, Sapphire::Data::ExdDataGenerated* exdData );
 };
 
 struct Warp
@@ -8515,6 +8920,7 @@ struct ZoneSharedGroup
      xiv::exd::Exd m_ArchiveItemDat;
      xiv::exd::Exd m_ArrayEventHandlerDat;
      xiv::exd::Exd m_AttackTypeDat;
+     xiv::exd::Exd m_AttractDat;
      xiv::exd::Exd m_BacklightColorDat;
      xiv::exd::Exd m_BallistaDat;
      xiv::exd::Exd m_BalloonDat;
@@ -8524,9 +8930,9 @@ struct ZoneSharedGroup
      xiv::exd::Exd m_BannerDesignPresetDat;
      xiv::exd::Exd m_BannerFacialDat;
      xiv::exd::Exd m_BannerFrameDat;
+     xiv::exd::Exd m_BannerObtainHintTypeDat;
      xiv::exd::Exd m_BannerPresetDat;
      xiv::exd::Exd m_BannerTimelineDat;
-     xiv::exd::Exd m_BannerTimelineFrameDat;
      xiv::exd::Exd m_BaseParamDat;
      xiv::exd::Exd m_BattleLeveDat;
      xiv::exd::Exd m_BattleLeveRuleDat;
@@ -8585,6 +8991,7 @@ struct ZoneSharedGroup
      xiv::exd::Exd m_ChocoboTaxiStandDat;
      xiv::exd::Exd m_CircleActivityDat;
      xiv::exd::Exd m_ClassJobDat;
+     xiv::exd::Exd m_ClassJobActionSortDat;
      xiv::exd::Exd m_ClassJobCategoryDat;
      xiv::exd::Exd m_CollectablesShopDat;
      xiv::exd::Exd m_CollectablesShopItemDat;
@@ -8612,6 +9019,7 @@ struct ZoneSharedGroup
      xiv::exd::Exd m_ConditionDat;
      xiv::exd::Exd m_ConfigKeyDat;
      xiv::exd::Exd m_ContentCloseCycleDat;
+     xiv::exd::Exd m_ContentEventItemDat;
      xiv::exd::Exd m_ContentExActionDat;
      xiv::exd::Exd m_ContentFinderConditionDat;
      xiv::exd::Exd m_ContentFinderConditionTransientDat;
@@ -8649,7 +9057,9 @@ struct ZoneSharedGroup
      xiv::exd::Exd m_CycleTimeDat;
      xiv::exd::Exd m_DailySupplyItemDat;
      xiv::exd::Exd m_DawnContentDat;
+     xiv::exd::Exd m_DawnContentParticipableDat;
      xiv::exd::Exd m_DawnGrowMemberDat;
+     xiv::exd::Exd m_DawnMemberDat;
      xiv::exd::Exd m_DawnMemberUIParamDat;
      xiv::exd::Exd m_DawnQuestMemberDat;
      xiv::exd::Exd m_DeepDungeonDat;
@@ -8928,19 +9338,42 @@ struct ZoneSharedGroup
      xiv::exd::Exd m_MinionRaceDat;
      xiv::exd::Exd m_MinionRulesDat;
      xiv::exd::Exd m_MinionSkillTypeDat;
+     xiv::exd::Exd m_MJIAnimalsDat;
+     xiv::exd::Exd m_MJIBuildingDat;
+     xiv::exd::Exd m_MJIBuildingPlaceDat;
      xiv::exd::Exd m_MJICraftworksObjectDat;
+     xiv::exd::Exd m_MJICraftworksObjectThemeDat;
+     xiv::exd::Exd m_MJICraftworksPopularityDat;
      xiv::exd::Exd m_MJICraftworksPopularityTypeDat;
+     xiv::exd::Exd m_MJICraftworksRankRatioDat;
      xiv::exd::Exd m_MJICraftworksSupplyDefineDat;
-     xiv::exd::Exd m_MJICraftworksSupplyTypeDat;
      xiv::exd::Exd m_MJICraftworksTensionDat;
+     xiv::exd::Exd m_MJICropSeedDat;
+     xiv::exd::Exd m_MJIDisposalShopItemDat;
+     xiv::exd::Exd m_MJIDisposalShopUICategoryDat;
+     xiv::exd::Exd m_MJIFarmPastureRankDat;
      xiv::exd::Exd m_MJIFunctionDat;
      xiv::exd::Exd m_MJIGatheringDat;
+     xiv::exd::Exd m_MJIGatheringItemDat;
      xiv::exd::Exd m_MJIGatheringObjectDat;
+     xiv::exd::Exd m_MJIGatheringToolDat;
+     xiv::exd::Exd m_MJIHudModeDat;
+     xiv::exd::Exd m_MJIItemCategoryDat;
      xiv::exd::Exd m_MJIItemPouchDat;
+     xiv::exd::Exd m_MJIKeyItemDat;
+     xiv::exd::Exd m_MJILandmarkDat;
+     xiv::exd::Exd m_MJILandmarkPlaceDat;
+     xiv::exd::Exd m_MJILivelyActorDat;
+     xiv::exd::Exd m_MJIMinionPopAreasDat;
+     xiv::exd::Exd m_MJIProgressDat;
      xiv::exd::Exd m_MJIRankDat;
      xiv::exd::Exd m_MJIRecipeDat;
      xiv::exd::Exd m_MJIRecipeMaterialDat;
+     xiv::exd::Exd m_MJIStockyardManagementAreaDat;
+     xiv::exd::Exd m_MJIStockyardManagementTableDat;
+     xiv::exd::Exd m_MJITextDat;
      xiv::exd::Exd m_MJIVillageAppearanceSGDat;
+     xiv::exd::Exd m_MJIVillageAppearanceUIDat;
      xiv::exd::Exd m_MJIVillageDevelopmentDat;
      xiv::exd::Exd m_MobHuntOrderDat;
      xiv::exd::Exd m_MobHuntOrderTypeDat;
@@ -9034,6 +9467,7 @@ struct ZoneSharedGroup
      xiv::exd::Exd m_QuestRedoIncompChapterDat;
      xiv::exd::Exd m_QuestRepeatFlagDat;
      xiv::exd::Exd m_QuestRewardOtherDat;
+     xiv::exd::Exd m_QuestSetDefineDat;
      xiv::exd::Exd m_QuickChatDat;
      xiv::exd::Exd m_QuickChatTransientDat;
      xiv::exd::Exd m_RaceDat;
@@ -9144,9 +9578,13 @@ struct ZoneSharedGroup
      xiv::exd::Exd m_UDS_PropertyDat;
      xiv::exd::Exd m_UIColorDat;
      xiv::exd::Exd m_UIConstDat;
-     xiv::exd::Exd m_VaseDat;
      xiv::exd::Exd m_VaseFlowerDat;
      xiv::exd::Exd m_VFXDat;
+     xiv::exd::Exd m_VVDDataDat;
+     xiv::exd::Exd m_VVDNotebookContentsDat;
+     xiv::exd::Exd m_VVDNotebookSeriesDat;
+     xiv::exd::Exd m_VVDRouteDataDat;
+     xiv::exd::Exd m_VVDVariantActionDat;
      xiv::exd::Exd m_WarpDat;
      xiv::exd::Exd m_WarpConditionDat;
      xiv::exd::Exd m_WarpLogicDat;
@@ -9231,6 +9669,7 @@ struct ZoneSharedGroup
      using ArchiveItemPtr = std::shared_ptr< ArchiveItem >;
      using ArrayEventHandlerPtr = std::shared_ptr< ArrayEventHandler >;
      using AttackTypePtr = std::shared_ptr< AttackType >;
+     using AttractPtr = std::shared_ptr< Attract >;
      using BacklightColorPtr = std::shared_ptr< BacklightColor >;
      using BallistaPtr = std::shared_ptr< Ballista >;
      using BalloonPtr = std::shared_ptr< Balloon >;
@@ -9240,9 +9679,9 @@ struct ZoneSharedGroup
      using BannerDesignPresetPtr = std::shared_ptr< BannerDesignPreset >;
      using BannerFacialPtr = std::shared_ptr< BannerFacial >;
      using BannerFramePtr = std::shared_ptr< BannerFrame >;
+     using BannerObtainHintTypePtr = std::shared_ptr< BannerObtainHintType >;
      using BannerPresetPtr = std::shared_ptr< BannerPreset >;
      using BannerTimelinePtr = std::shared_ptr< BannerTimeline >;
-     using BannerTimelineFramePtr = std::shared_ptr< BannerTimelineFrame >;
      using BaseParamPtr = std::shared_ptr< BaseParam >;
      using BattleLevePtr = std::shared_ptr< BattleLeve >;
      using BattleLeveRulePtr = std::shared_ptr< BattleLeveRule >;
@@ -9301,6 +9740,7 @@ struct ZoneSharedGroup
      using ChocoboTaxiStandPtr = std::shared_ptr< ChocoboTaxiStand >;
      using CircleActivityPtr = std::shared_ptr< CircleActivity >;
      using ClassJobPtr = std::shared_ptr< ClassJob >;
+     using ClassJobActionSortPtr = std::shared_ptr< ClassJobActionSort >;
      using ClassJobCategoryPtr = std::shared_ptr< ClassJobCategory >;
      using CollectablesShopPtr = std::shared_ptr< CollectablesShop >;
      using CollectablesShopItemPtr = std::shared_ptr< CollectablesShopItem >;
@@ -9328,6 +9768,7 @@ struct ZoneSharedGroup
      using ConditionPtr = std::shared_ptr< Condition >;
      using ConfigKeyPtr = std::shared_ptr< ConfigKey >;
      using ContentCloseCyclePtr = std::shared_ptr< ContentCloseCycle >;
+     using ContentEventItemPtr = std::shared_ptr< ContentEventItem >;
      using ContentExActionPtr = std::shared_ptr< ContentExAction >;
      using ContentFinderConditionPtr = std::shared_ptr< ContentFinderCondition >;
      using ContentFinderConditionTransientPtr = std::shared_ptr< ContentFinderConditionTransient >;
@@ -9365,7 +9806,9 @@ struct ZoneSharedGroup
      using CycleTimePtr = std::shared_ptr< CycleTime >;
      using DailySupplyItemPtr = std::shared_ptr< DailySupplyItem >;
      using DawnContentPtr = std::shared_ptr< DawnContent >;
+     using DawnContentParticipablePtr = std::shared_ptr< DawnContentParticipable >;
      using DawnGrowMemberPtr = std::shared_ptr< DawnGrowMember >;
+     using DawnMemberPtr = std::shared_ptr< DawnMember >;
      using DawnMemberUIParamPtr = std::shared_ptr< DawnMemberUIParam >;
      using DawnQuestMemberPtr = std::shared_ptr< DawnQuestMember >;
      using DeepDungeonPtr = std::shared_ptr< DeepDungeon >;
@@ -9644,19 +10087,42 @@ struct ZoneSharedGroup
      using MinionRacePtr = std::shared_ptr< MinionRace >;
      using MinionRulesPtr = std::shared_ptr< MinionRules >;
      using MinionSkillTypePtr = std::shared_ptr< MinionSkillType >;
+     using MJIAnimalsPtr = std::shared_ptr< MJIAnimals >;
+     using MJIBuildingPtr = std::shared_ptr< MJIBuilding >;
+     using MJIBuildingPlacePtr = std::shared_ptr< MJIBuildingPlace >;
      using MJICraftworksObjectPtr = std::shared_ptr< MJICraftworksObject >;
+     using MJICraftworksObjectThemePtr = std::shared_ptr< MJICraftworksObjectTheme >;
+     using MJICraftworksPopularityPtr = std::shared_ptr< MJICraftworksPopularity >;
      using MJICraftworksPopularityTypePtr = std::shared_ptr< MJICraftworksPopularityType >;
+     using MJICraftworksRankRatioPtr = std::shared_ptr< MJICraftworksRankRatio >;
      using MJICraftworksSupplyDefinePtr = std::shared_ptr< MJICraftworksSupplyDefine >;
-     using MJICraftworksSupplyTypePtr = std::shared_ptr< MJICraftworksSupplyType >;
      using MJICraftworksTensionPtr = std::shared_ptr< MJICraftworksTension >;
+     using MJICropSeedPtr = std::shared_ptr< MJICropSeed >;
+     using MJIDisposalShopItemPtr = std::shared_ptr< MJIDisposalShopItem >;
+     using MJIDisposalShopUICategoryPtr = std::shared_ptr< MJIDisposalShopUICategory >;
+     using MJIFarmPastureRankPtr = std::shared_ptr< MJIFarmPastureRank >;
      using MJIFunctionPtr = std::shared_ptr< MJIFunction >;
      using MJIGatheringPtr = std::shared_ptr< MJIGathering >;
+     using MJIGatheringItemPtr = std::shared_ptr< MJIGatheringItem >;
      using MJIGatheringObjectPtr = std::shared_ptr< MJIGatheringObject >;
+     using MJIGatheringToolPtr = std::shared_ptr< MJIGatheringTool >;
+     using MJIHudModePtr = std::shared_ptr< MJIHudMode >;
+     using MJIItemCategoryPtr = std::shared_ptr< MJIItemCategory >;
      using MJIItemPouchPtr = std::shared_ptr< MJIItemPouch >;
+     using MJIKeyItemPtr = std::shared_ptr< MJIKeyItem >;
+     using MJILandmarkPtr = std::shared_ptr< MJILandmark >;
+     using MJILandmarkPlacePtr = std::shared_ptr< MJILandmarkPlace >;
+     using MJILivelyActorPtr = std::shared_ptr< MJILivelyActor >;
+     using MJIMinionPopAreasPtr = std::shared_ptr< MJIMinionPopAreas >;
+     using MJIProgressPtr = std::shared_ptr< MJIProgress >;
      using MJIRankPtr = std::shared_ptr< MJIRank >;
      using MJIRecipePtr = std::shared_ptr< MJIRecipe >;
      using MJIRecipeMaterialPtr = std::shared_ptr< MJIRecipeMaterial >;
+     using MJIStockyardManagementAreaPtr = std::shared_ptr< MJIStockyardManagementArea >;
+     using MJIStockyardManagementTablePtr = std::shared_ptr< MJIStockyardManagementTable >;
+     using MJITextPtr = std::shared_ptr< MJIText >;
      using MJIVillageAppearanceSGPtr = std::shared_ptr< MJIVillageAppearanceSG >;
+     using MJIVillageAppearanceUIPtr = std::shared_ptr< MJIVillageAppearanceUI >;
      using MJIVillageDevelopmentPtr = std::shared_ptr< MJIVillageDevelopment >;
      using MobHuntOrderPtr = std::shared_ptr< MobHuntOrder >;
      using MobHuntOrderTypePtr = std::shared_ptr< MobHuntOrderType >;
@@ -9750,6 +10216,7 @@ struct ZoneSharedGroup
      using QuestRedoIncompChapterPtr = std::shared_ptr< QuestRedoIncompChapter >;
      using QuestRepeatFlagPtr = std::shared_ptr< QuestRepeatFlag >;
      using QuestRewardOtherPtr = std::shared_ptr< QuestRewardOther >;
+     using QuestSetDefinePtr = std::shared_ptr< QuestSetDefine >;
      using QuickChatPtr = std::shared_ptr< QuickChat >;
      using QuickChatTransientPtr = std::shared_ptr< QuickChatTransient >;
      using RacePtr = std::shared_ptr< Race >;
@@ -9860,9 +10327,13 @@ struct ZoneSharedGroup
      using UDS_PropertyPtr = std::shared_ptr< UDS_Property >;
      using UIColorPtr = std::shared_ptr< UIColor >;
      using UIConstPtr = std::shared_ptr< UIConst >;
-     using VasePtr = std::shared_ptr< Vase >;
      using VaseFlowerPtr = std::shared_ptr< VaseFlower >;
      using VFXPtr = std::shared_ptr< VFX >;
+     using VVDDataPtr = std::shared_ptr< VVDData >;
+     using VVDNotebookContentsPtr = std::shared_ptr< VVDNotebookContents >;
+     using VVDNotebookSeriesPtr = std::shared_ptr< VVDNotebookSeries >;
+     using VVDRouteDataPtr = std::shared_ptr< VVDRouteData >;
+     using VVDVariantActionPtr = std::shared_ptr< VVDVariantAction >;
      using WarpPtr = std::shared_ptr< Warp >;
      using WarpConditionPtr = std::shared_ptr< WarpCondition >;
      using WarpLogicPtr = std::shared_ptr< WarpLogic >;
@@ -9947,6 +10418,7 @@ struct ZoneSharedGroup
      std::set< uint32_t > m_ArchiveItemIdList;
      std::set< uint32_t > m_ArrayEventHandlerIdList;
      std::set< uint32_t > m_AttackTypeIdList;
+     std::set< uint32_t > m_AttractIdList;
      std::set< uint32_t > m_BacklightColorIdList;
      std::set< uint32_t > m_BallistaIdList;
      std::set< uint32_t > m_BalloonIdList;
@@ -9956,9 +10428,9 @@ struct ZoneSharedGroup
      std::set< uint32_t > m_BannerDesignPresetIdList;
      std::set< uint32_t > m_BannerFacialIdList;
      std::set< uint32_t > m_BannerFrameIdList;
+     std::set< uint32_t > m_BannerObtainHintTypeIdList;
      std::set< uint32_t > m_BannerPresetIdList;
      std::set< uint32_t > m_BannerTimelineIdList;
-     std::set< uint32_t > m_BannerTimelineFrameIdList;
      std::set< uint32_t > m_BaseParamIdList;
      std::set< uint32_t > m_BattleLeveIdList;
      std::set< uint32_t > m_BattleLeveRuleIdList;
@@ -10017,6 +10489,7 @@ struct ZoneSharedGroup
      std::set< uint32_t > m_ChocoboTaxiStandIdList;
      std::set< uint32_t > m_CircleActivityIdList;
      std::set< uint32_t > m_ClassJobIdList;
+     std::set< uint32_t > m_ClassJobActionSortIdList;
      std::set< uint32_t > m_ClassJobCategoryIdList;
      std::set< uint32_t > m_CollectablesShopIdList;
      std::set< uint32_t > m_CollectablesShopItemIdList;
@@ -10044,6 +10517,7 @@ struct ZoneSharedGroup
      std::set< uint32_t > m_ConditionIdList;
      std::set< uint32_t > m_ConfigKeyIdList;
      std::set< uint32_t > m_ContentCloseCycleIdList;
+     std::set< uint32_t > m_ContentEventItemIdList;
      std::set< uint32_t > m_ContentExActionIdList;
      std::set< uint32_t > m_ContentFinderConditionIdList;
      std::set< uint32_t > m_ContentFinderConditionTransientIdList;
@@ -10081,7 +10555,9 @@ struct ZoneSharedGroup
      std::set< uint32_t > m_CycleTimeIdList;
      std::set< uint32_t > m_DailySupplyItemIdList;
      std::set< uint32_t > m_DawnContentIdList;
+     std::set< uint32_t > m_DawnContentParticipableIdList;
      std::set< uint32_t > m_DawnGrowMemberIdList;
+     std::set< uint32_t > m_DawnMemberIdList;
      std::set< uint32_t > m_DawnMemberUIParamIdList;
      std::set< uint32_t > m_DawnQuestMemberIdList;
      std::set< uint32_t > m_DeepDungeonIdList;
@@ -10360,19 +10836,42 @@ struct ZoneSharedGroup
      std::set< uint32_t > m_MinionRaceIdList;
      std::set< uint32_t > m_MinionRulesIdList;
      std::set< uint32_t > m_MinionSkillTypeIdList;
+     std::set< uint32_t > m_MJIAnimalsIdList;
+     std::set< uint32_t > m_MJIBuildingIdList;
+     std::set< uint32_t > m_MJIBuildingPlaceIdList;
      std::set< uint32_t > m_MJICraftworksObjectIdList;
+     std::set< uint32_t > m_MJICraftworksObjectThemeIdList;
+     std::set< uint32_t > m_MJICraftworksPopularityIdList;
      std::set< uint32_t > m_MJICraftworksPopularityTypeIdList;
+     std::set< uint32_t > m_MJICraftworksRankRatioIdList;
      std::set< uint32_t > m_MJICraftworksSupplyDefineIdList;
-     std::set< uint32_t > m_MJICraftworksSupplyTypeIdList;
      std::set< uint32_t > m_MJICraftworksTensionIdList;
+     std::set< uint32_t > m_MJICropSeedIdList;
+     std::set< uint32_t > m_MJIDisposalShopItemIdList;
+     std::set< uint32_t > m_MJIDisposalShopUICategoryIdList;
+     std::set< uint32_t > m_MJIFarmPastureRankIdList;
      std::set< uint32_t > m_MJIFunctionIdList;
      std::set< uint32_t > m_MJIGatheringIdList;
+     std::set< uint32_t > m_MJIGatheringItemIdList;
      std::set< uint32_t > m_MJIGatheringObjectIdList;
+     std::set< uint32_t > m_MJIGatheringToolIdList;
+     std::set< uint32_t > m_MJIHudModeIdList;
+     std::set< uint32_t > m_MJIItemCategoryIdList;
      std::set< uint32_t > m_MJIItemPouchIdList;
+     std::set< uint32_t > m_MJIKeyItemIdList;
+     std::set< uint32_t > m_MJILandmarkIdList;
+     std::set< uint32_t > m_MJILandmarkPlaceIdList;
+     std::set< uint32_t > m_MJILivelyActorIdList;
+     std::set< uint32_t > m_MJIMinionPopAreasIdList;
+     std::set< uint32_t > m_MJIProgressIdList;
      std::set< uint32_t > m_MJIRankIdList;
      std::set< uint32_t > m_MJIRecipeIdList;
      std::set< uint32_t > m_MJIRecipeMaterialIdList;
+     std::set< uint32_t > m_MJIStockyardManagementAreaIdList;
+     std::set< uint32_t > m_MJIStockyardManagementTableIdList;
+     std::set< uint32_t > m_MJITextIdList;
      std::set< uint32_t > m_MJIVillageAppearanceSGIdList;
+     std::set< uint32_t > m_MJIVillageAppearanceUIIdList;
      std::set< uint32_t > m_MJIVillageDevelopmentIdList;
      std::set< uint32_t > m_MobHuntOrderIdList;
      std::set< uint32_t > m_MobHuntOrderTypeIdList;
@@ -10466,6 +10965,7 @@ struct ZoneSharedGroup
      std::set< uint32_t > m_QuestRedoIncompChapterIdList;
      std::set< uint32_t > m_QuestRepeatFlagIdList;
      std::set< uint32_t > m_QuestRewardOtherIdList;
+     std::set< uint32_t > m_QuestSetDefineIdList;
      std::set< uint32_t > m_QuickChatIdList;
      std::set< uint32_t > m_QuickChatTransientIdList;
      std::set< uint32_t > m_RaceIdList;
@@ -10576,9 +11076,13 @@ struct ZoneSharedGroup
      std::set< uint32_t > m_UDS_PropertyIdList;
      std::set< uint32_t > m_UIColorIdList;
      std::set< uint32_t > m_UIConstIdList;
-     std::set< uint32_t > m_VaseIdList;
      std::set< uint32_t > m_VaseFlowerIdList;
      std::set< uint32_t > m_VFXIdList;
+     std::set< uint32_t > m_VVDDataIdList;
+     std::set< uint32_t > m_VVDNotebookContentsIdList;
+     std::set< uint32_t > m_VVDNotebookSeriesIdList;
+     std::set< uint32_t > m_VVDRouteDataIdList;
+     std::set< uint32_t > m_VVDVariantActionIdList;
      std::set< uint32_t > m_WarpIdList;
      std::set< uint32_t > m_WarpConditionIdList;
      std::set< uint32_t > m_WarpLogicIdList;
@@ -10968,6 +11472,12 @@ const std::set< uint32_t >& getAttackTypeIdList()
       loadIdList( m_AttackTypeDat, m_AttackTypeIdList );
    return m_AttackTypeIdList;
 }
+const std::set< uint32_t >& getAttractIdList()
+{
+   if( m_AttractIdList.size() == 0 )
+      loadIdList( m_AttractDat, m_AttractIdList );
+   return m_AttractIdList;
+}
 const std::set< uint32_t >& getBacklightColorIdList()
 {
    if( m_BacklightColorIdList.size() == 0 )
@@ -11022,6 +11532,12 @@ const std::set< uint32_t >& getBannerFrameIdList()
       loadIdList( m_BannerFrameDat, m_BannerFrameIdList );
    return m_BannerFrameIdList;
 }
+const std::set< uint32_t >& getBannerObtainHintTypeIdList()
+{
+   if( m_BannerObtainHintTypeIdList.size() == 0 )
+      loadIdList( m_BannerObtainHintTypeDat, m_BannerObtainHintTypeIdList );
+   return m_BannerObtainHintTypeIdList;
+}
 const std::set< uint32_t >& getBannerPresetIdList()
 {
    if( m_BannerPresetIdList.size() == 0 )
@@ -11033,12 +11549,6 @@ const std::set< uint32_t >& getBannerTimelineIdList()
    if( m_BannerTimelineIdList.size() == 0 )
       loadIdList( m_BannerTimelineDat, m_BannerTimelineIdList );
    return m_BannerTimelineIdList;
-}
-const std::set< uint32_t >& getBannerTimelineFrameIdList()
-{
-   if( m_BannerTimelineFrameIdList.size() == 0 )
-      loadIdList( m_BannerTimelineFrameDat, m_BannerTimelineFrameIdList );
-   return m_BannerTimelineFrameIdList;
 }
 const std::set< uint32_t >& getBaseParamIdList()
 {
@@ -11388,6 +11898,12 @@ const std::set< uint32_t >& getClassJobIdList()
       loadIdList( m_ClassJobDat, m_ClassJobIdList );
    return m_ClassJobIdList;
 }
+const std::set< uint32_t >& getClassJobActionSortIdList()
+{
+   if( m_ClassJobActionSortIdList.size() == 0 )
+      loadIdList( m_ClassJobActionSortDat, m_ClassJobActionSortIdList );
+   return m_ClassJobActionSortIdList;
+}
 const std::set< uint32_t >& getClassJobCategoryIdList()
 {
    if( m_ClassJobCategoryIdList.size() == 0 )
@@ -11549,6 +12065,12 @@ const std::set< uint32_t >& getContentCloseCycleIdList()
    if( m_ContentCloseCycleIdList.size() == 0 )
       loadIdList( m_ContentCloseCycleDat, m_ContentCloseCycleIdList );
    return m_ContentCloseCycleIdList;
+}
+const std::set< uint32_t >& getContentEventItemIdList()
+{
+   if( m_ContentEventItemIdList.size() == 0 )
+      loadIdList( m_ContentEventItemDat, m_ContentEventItemIdList );
+   return m_ContentEventItemIdList;
 }
 const std::set< uint32_t >& getContentExActionIdList()
 {
@@ -11772,11 +12294,23 @@ const std::set< uint32_t >& getDawnContentIdList()
       loadIdList( m_DawnContentDat, m_DawnContentIdList );
    return m_DawnContentIdList;
 }
+const std::set< uint32_t >& getDawnContentParticipableIdList()
+{
+   if( m_DawnContentParticipableIdList.size() == 0 )
+      loadIdList( m_DawnContentParticipableDat, m_DawnContentParticipableIdList );
+   return m_DawnContentParticipableIdList;
+}
 const std::set< uint32_t >& getDawnGrowMemberIdList()
 {
    if( m_DawnGrowMemberIdList.size() == 0 )
       loadIdList( m_DawnGrowMemberDat, m_DawnGrowMemberIdList );
    return m_DawnGrowMemberIdList;
+}
+const std::set< uint32_t >& getDawnMemberIdList()
+{
+   if( m_DawnMemberIdList.size() == 0 )
+      loadIdList( m_DawnMemberDat, m_DawnMemberIdList );
+   return m_DawnMemberIdList;
 }
 const std::set< uint32_t >& getDawnMemberUIParamIdList()
 {
@@ -13446,11 +13980,41 @@ const std::set< uint32_t >& getMinionSkillTypeIdList()
       loadIdList( m_MinionSkillTypeDat, m_MinionSkillTypeIdList );
    return m_MinionSkillTypeIdList;
 }
+const std::set< uint32_t >& getMJIAnimalsIdList()
+{
+   if( m_MJIAnimalsIdList.size() == 0 )
+      loadIdList( m_MJIAnimalsDat, m_MJIAnimalsIdList );
+   return m_MJIAnimalsIdList;
+}
+const std::set< uint32_t >& getMJIBuildingIdList()
+{
+   if( m_MJIBuildingIdList.size() == 0 )
+      loadIdList( m_MJIBuildingDat, m_MJIBuildingIdList );
+   return m_MJIBuildingIdList;
+}
+const std::set< uint32_t >& getMJIBuildingPlaceIdList()
+{
+   if( m_MJIBuildingPlaceIdList.size() == 0 )
+      loadIdList( m_MJIBuildingPlaceDat, m_MJIBuildingPlaceIdList );
+   return m_MJIBuildingPlaceIdList;
+}
 const std::set< uint32_t >& getMJICraftworksObjectIdList()
 {
    if( m_MJICraftworksObjectIdList.size() == 0 )
       loadIdList( m_MJICraftworksObjectDat, m_MJICraftworksObjectIdList );
    return m_MJICraftworksObjectIdList;
+}
+const std::set< uint32_t >& getMJICraftworksObjectThemeIdList()
+{
+   if( m_MJICraftworksObjectThemeIdList.size() == 0 )
+      loadIdList( m_MJICraftworksObjectThemeDat, m_MJICraftworksObjectThemeIdList );
+   return m_MJICraftworksObjectThemeIdList;
+}
+const std::set< uint32_t >& getMJICraftworksPopularityIdList()
+{
+   if( m_MJICraftworksPopularityIdList.size() == 0 )
+      loadIdList( m_MJICraftworksPopularityDat, m_MJICraftworksPopularityIdList );
+   return m_MJICraftworksPopularityIdList;
 }
 const std::set< uint32_t >& getMJICraftworksPopularityTypeIdList()
 {
@@ -13458,23 +14022,47 @@ const std::set< uint32_t >& getMJICraftworksPopularityTypeIdList()
       loadIdList( m_MJICraftworksPopularityTypeDat, m_MJICraftworksPopularityTypeIdList );
    return m_MJICraftworksPopularityTypeIdList;
 }
+const std::set< uint32_t >& getMJICraftworksRankRatioIdList()
+{
+   if( m_MJICraftworksRankRatioIdList.size() == 0 )
+      loadIdList( m_MJICraftworksRankRatioDat, m_MJICraftworksRankRatioIdList );
+   return m_MJICraftworksRankRatioIdList;
+}
 const std::set< uint32_t >& getMJICraftworksSupplyDefineIdList()
 {
    if( m_MJICraftworksSupplyDefineIdList.size() == 0 )
       loadIdList( m_MJICraftworksSupplyDefineDat, m_MJICraftworksSupplyDefineIdList );
    return m_MJICraftworksSupplyDefineIdList;
 }
-const std::set< uint32_t >& getMJICraftworksSupplyTypeIdList()
-{
-   if( m_MJICraftworksSupplyTypeIdList.size() == 0 )
-      loadIdList( m_MJICraftworksSupplyTypeDat, m_MJICraftworksSupplyTypeIdList );
-   return m_MJICraftworksSupplyTypeIdList;
-}
 const std::set< uint32_t >& getMJICraftworksTensionIdList()
 {
    if( m_MJICraftworksTensionIdList.size() == 0 )
       loadIdList( m_MJICraftworksTensionDat, m_MJICraftworksTensionIdList );
    return m_MJICraftworksTensionIdList;
+}
+const std::set< uint32_t >& getMJICropSeedIdList()
+{
+   if( m_MJICropSeedIdList.size() == 0 )
+      loadIdList( m_MJICropSeedDat, m_MJICropSeedIdList );
+   return m_MJICropSeedIdList;
+}
+const std::set< uint32_t >& getMJIDisposalShopItemIdList()
+{
+   if( m_MJIDisposalShopItemIdList.size() == 0 )
+      loadIdList( m_MJIDisposalShopItemDat, m_MJIDisposalShopItemIdList );
+   return m_MJIDisposalShopItemIdList;
+}
+const std::set< uint32_t >& getMJIDisposalShopUICategoryIdList()
+{
+   if( m_MJIDisposalShopUICategoryIdList.size() == 0 )
+      loadIdList( m_MJIDisposalShopUICategoryDat, m_MJIDisposalShopUICategoryIdList );
+   return m_MJIDisposalShopUICategoryIdList;
+}
+const std::set< uint32_t >& getMJIFarmPastureRankIdList()
+{
+   if( m_MJIFarmPastureRankIdList.size() == 0 )
+      loadIdList( m_MJIFarmPastureRankDat, m_MJIFarmPastureRankIdList );
+   return m_MJIFarmPastureRankIdList;
 }
 const std::set< uint32_t >& getMJIFunctionIdList()
 {
@@ -13488,17 +14076,77 @@ const std::set< uint32_t >& getMJIGatheringIdList()
       loadIdList( m_MJIGatheringDat, m_MJIGatheringIdList );
    return m_MJIGatheringIdList;
 }
+const std::set< uint32_t >& getMJIGatheringItemIdList()
+{
+   if( m_MJIGatheringItemIdList.size() == 0 )
+      loadIdList( m_MJIGatheringItemDat, m_MJIGatheringItemIdList );
+   return m_MJIGatheringItemIdList;
+}
 const std::set< uint32_t >& getMJIGatheringObjectIdList()
 {
    if( m_MJIGatheringObjectIdList.size() == 0 )
       loadIdList( m_MJIGatheringObjectDat, m_MJIGatheringObjectIdList );
    return m_MJIGatheringObjectIdList;
 }
+const std::set< uint32_t >& getMJIGatheringToolIdList()
+{
+   if( m_MJIGatheringToolIdList.size() == 0 )
+      loadIdList( m_MJIGatheringToolDat, m_MJIGatheringToolIdList );
+   return m_MJIGatheringToolIdList;
+}
+const std::set< uint32_t >& getMJIHudModeIdList()
+{
+   if( m_MJIHudModeIdList.size() == 0 )
+      loadIdList( m_MJIHudModeDat, m_MJIHudModeIdList );
+   return m_MJIHudModeIdList;
+}
+const std::set< uint32_t >& getMJIItemCategoryIdList()
+{
+   if( m_MJIItemCategoryIdList.size() == 0 )
+      loadIdList( m_MJIItemCategoryDat, m_MJIItemCategoryIdList );
+   return m_MJIItemCategoryIdList;
+}
 const std::set< uint32_t >& getMJIItemPouchIdList()
 {
    if( m_MJIItemPouchIdList.size() == 0 )
       loadIdList( m_MJIItemPouchDat, m_MJIItemPouchIdList );
    return m_MJIItemPouchIdList;
+}
+const std::set< uint32_t >& getMJIKeyItemIdList()
+{
+   if( m_MJIKeyItemIdList.size() == 0 )
+      loadIdList( m_MJIKeyItemDat, m_MJIKeyItemIdList );
+   return m_MJIKeyItemIdList;
+}
+const std::set< uint32_t >& getMJILandmarkIdList()
+{
+   if( m_MJILandmarkIdList.size() == 0 )
+      loadIdList( m_MJILandmarkDat, m_MJILandmarkIdList );
+   return m_MJILandmarkIdList;
+}
+const std::set< uint32_t >& getMJILandmarkPlaceIdList()
+{
+   if( m_MJILandmarkPlaceIdList.size() == 0 )
+      loadIdList( m_MJILandmarkPlaceDat, m_MJILandmarkPlaceIdList );
+   return m_MJILandmarkPlaceIdList;
+}
+const std::set< uint32_t >& getMJILivelyActorIdList()
+{
+   if( m_MJILivelyActorIdList.size() == 0 )
+      loadIdList( m_MJILivelyActorDat, m_MJILivelyActorIdList );
+   return m_MJILivelyActorIdList;
+}
+const std::set< uint32_t >& getMJIMinionPopAreasIdList()
+{
+   if( m_MJIMinionPopAreasIdList.size() == 0 )
+      loadIdList( m_MJIMinionPopAreasDat, m_MJIMinionPopAreasIdList );
+   return m_MJIMinionPopAreasIdList;
+}
+const std::set< uint32_t >& getMJIProgressIdList()
+{
+   if( m_MJIProgressIdList.size() == 0 )
+      loadIdList( m_MJIProgressDat, m_MJIProgressIdList );
+   return m_MJIProgressIdList;
 }
 const std::set< uint32_t >& getMJIRankIdList()
 {
@@ -13518,11 +14166,35 @@ const std::set< uint32_t >& getMJIRecipeMaterialIdList()
       loadIdList( m_MJIRecipeMaterialDat, m_MJIRecipeMaterialIdList );
    return m_MJIRecipeMaterialIdList;
 }
+const std::set< uint32_t >& getMJIStockyardManagementAreaIdList()
+{
+   if( m_MJIStockyardManagementAreaIdList.size() == 0 )
+      loadIdList( m_MJIStockyardManagementAreaDat, m_MJIStockyardManagementAreaIdList );
+   return m_MJIStockyardManagementAreaIdList;
+}
+const std::set< uint32_t >& getMJIStockyardManagementTableIdList()
+{
+   if( m_MJIStockyardManagementTableIdList.size() == 0 )
+      loadIdList( m_MJIStockyardManagementTableDat, m_MJIStockyardManagementTableIdList );
+   return m_MJIStockyardManagementTableIdList;
+}
+const std::set< uint32_t >& getMJITextIdList()
+{
+   if( m_MJITextIdList.size() == 0 )
+      loadIdList( m_MJITextDat, m_MJITextIdList );
+   return m_MJITextIdList;
+}
 const std::set< uint32_t >& getMJIVillageAppearanceSGIdList()
 {
    if( m_MJIVillageAppearanceSGIdList.size() == 0 )
       loadIdList( m_MJIVillageAppearanceSGDat, m_MJIVillageAppearanceSGIdList );
    return m_MJIVillageAppearanceSGIdList;
+}
+const std::set< uint32_t >& getMJIVillageAppearanceUIIdList()
+{
+   if( m_MJIVillageAppearanceUIIdList.size() == 0 )
+      loadIdList( m_MJIVillageAppearanceUIDat, m_MJIVillageAppearanceUIIdList );
+   return m_MJIVillageAppearanceUIIdList;
 }
 const std::set< uint32_t >& getMJIVillageDevelopmentIdList()
 {
@@ -14081,6 +14753,12 @@ const std::set< uint32_t >& getQuestRewardOtherIdList()
    if( m_QuestRewardOtherIdList.size() == 0 )
       loadIdList( m_QuestRewardOtherDat, m_QuestRewardOtherIdList );
    return m_QuestRewardOtherIdList;
+}
+const std::set< uint32_t >& getQuestSetDefineIdList()
+{
+   if( m_QuestSetDefineIdList.size() == 0 )
+      loadIdList( m_QuestSetDefineDat, m_QuestSetDefineIdList );
+   return m_QuestSetDefineIdList;
 }
 const std::set< uint32_t >& getQuickChatIdList()
 {
@@ -14742,23 +15420,47 @@ const std::set< uint32_t >& getUIConstIdList()
       loadIdList( m_UIConstDat, m_UIConstIdList );
    return m_UIConstIdList;
 }
-const std::set< uint32_t >& getVaseIdList()
-{
-   if( m_VaseIdList.size() == 0 )
-      loadIdList( m_VaseDat, m_VaseIdList );
-   return m_VaseIdList;
-}
 const std::set< uint32_t >& getVaseFlowerIdList()
 {
-  if (m_VaseFlowerIdList.size() == 0)
-    loadIdList(m_VaseFlowerDat, m_VaseFlowerIdList);
-  return m_VaseFlowerIdList;
+   if( m_VaseFlowerIdList.size() == 0 )
+      loadIdList( m_VaseFlowerDat, m_VaseFlowerIdList );
+   return m_VaseFlowerIdList;
 }
 const std::set< uint32_t >& getVFXIdList()
 {
    if( m_VFXIdList.size() == 0 )
       loadIdList( m_VFXDat, m_VFXIdList );
    return m_VFXIdList;
+}
+const std::set< uint32_t >& getVVDDataIdList()
+{
+   if( m_VVDDataIdList.size() == 0 )
+      loadIdList( m_VVDDataDat, m_VVDDataIdList );
+   return m_VVDDataIdList;
+}
+const std::set< uint32_t >& getVVDNotebookContentsIdList()
+{
+   if( m_VVDNotebookContentsIdList.size() == 0 )
+      loadIdList( m_VVDNotebookContentsDat, m_VVDNotebookContentsIdList );
+   return m_VVDNotebookContentsIdList;
+}
+const std::set< uint32_t >& getVVDNotebookSeriesIdList()
+{
+   if( m_VVDNotebookSeriesIdList.size() == 0 )
+      loadIdList( m_VVDNotebookSeriesDat, m_VVDNotebookSeriesIdList );
+   return m_VVDNotebookSeriesIdList;
+}
+const std::set< uint32_t >& getVVDRouteDataIdList()
+{
+   if( m_VVDRouteDataIdList.size() == 0 )
+      loadIdList( m_VVDRouteDataDat, m_VVDRouteDataIdList );
+   return m_VVDRouteDataIdList;
+}
+const std::set< uint32_t >& getVVDVariantActionIdList()
+{
+   if( m_VVDVariantActionIdList.size() == 0 )
+      loadIdList( m_VVDVariantActionDat, m_VVDVariantActionIdList );
+   return m_VVDVariantActionIdList;
 }
 const std::set< uint32_t >& getWarpIdList()
 {
