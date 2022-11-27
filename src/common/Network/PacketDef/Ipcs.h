@@ -147,7 +147,7 @@ namespace Sapphire::Network::Packets
     CountdownInitiate = 0x034E, // updated 6.18 hotfix
     CountdownCancel = 0x017B, // updated 6.18 hotfix
 
-    PlayerAddedToBlacklist = 0x02E6, // updated 6.18 hotfix
+    PlayerAddedToBlacklist = 0x0002, // updated 6.18 hotfix (todo: placeholder)
     PlayerRemovedFromBlacklist = 0x0361, // updated 6.18 hotfix
     BlackList = 0x03A9, // updated 6.18 hotfix
 
@@ -233,7 +233,7 @@ namespace Sapphire::Network::Packets
     InventoryActionAck = 0x0230, // Updated 6.28 hotfix
     UpdateInventorySlot = 0x0308, // Updated 6.28 hotfix
 
-    HuntingLogEntry = 0x0072, // updated 6.18 hotfix
+    HuntingLogEntry = 0x02E6, // updated 6.28 hotfix (experimental)
 
     EventContinue = 0x0118, // updated 6.18 hotfix
 
@@ -251,8 +251,7 @@ namespace Sapphire::Network::Packets
 
     QuestTracker = 0x039E, // updated 6.18 hotfix
 
-    //TODO: conflicts with Init 6.28
-    Mount = 0x01CB, // updated 6.18 hotfix
+    Mount = 0x0001, // updated 6.18 hotfix (todo: placeholder)
 
     CFAvailableContents = 0xF1FD, // updated 4.2
 
@@ -355,7 +354,7 @@ namespace Sapphire::Network::Packets
     LinkshellListHandler = 0xF39D, // updated 6.11
     MarketBoardSearch = 0xF183, // updated 6.11a
 
-    LogoutHandler = 0x0245, // updated 6.18 hotfix
+    LogoutHandler = 0x0185, // updated 6.28 hotfix (experimental)
     CancelLogout = 0x028C, // updated 6.18 hotfix
 
     UpdatePositionHandler = 0x0392, // Updated 6.28 hotfix
